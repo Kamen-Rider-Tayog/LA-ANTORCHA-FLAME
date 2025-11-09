@@ -8,15 +8,26 @@
     display: none;
 }
 
+:root {
+    --main-color: #644D36;
+    --main-bg: #F7EEDD;
+    --footer-bg: #B1A9A2;
+
+    --light-color-font: #F7EEDD;
+    --dark-color-font: #352325;
+
+    --accent-color: #756d6e;
+}
+
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
 }
 
 header {
+    font-family: 'EB Garamond', serif;
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: var(--main-bg);
     height: 100vh;
 }
 
@@ -28,7 +39,8 @@ header {
 }
 
 .header-content h1 {
-    color: white;
+    font-family: "Shelley Script LT W01", serif;
+    color: var(--main-color);
 }
 
 .logo {
@@ -38,16 +50,20 @@ header {
     text-decoration: none;
 }
 
+.logo img {
+    height: 5rem;
+}
+
 nav {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
-    background-color: aqua;
+    background-color: var(--main-color);
     padding: 1rem 0;
     border-radius: 5rem 0 0 5rem;
 }
@@ -68,7 +84,6 @@ nav a {
     }
     
     .header-content {
-        flex-direction: column;
         gap: 1rem;
     }
     

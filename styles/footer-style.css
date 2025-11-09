@@ -8,27 +8,43 @@
     display: none;
 }
 
+:root {
+    --main-color: #644D36;
+    --main-bg: #F7EEDD;
+    --footer-bg: #B1A9A2;
+
+    --light-color-font: #F7EEDD;
+    --dark-color-font: #352325;
+
+    --accent-color: #756d6e;
+}
+
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
 }
 
 footer {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: white;
+    background-color: var(--footer-bg);
     padding: 2rem;
     height: 100vh;
+    width: 100%;
+    font-family: 'EB Garamond', serif;
 }
 
 .footer-content {
     width: 100%;
     gap: 2rem;
     display: flex;
-    
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.footer-section {
+    max-width: 30vw;
 }
 
 .footer-section h3 {
-    color: #3498db;
+    color: var(--dark-color-font);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
     position: relative;
@@ -41,25 +57,35 @@ footer {
     left: 0;
     width: 50px;
     height: 3px;
-    background: #e74c3c;
+    background: var(--accent-color);
     border-radius: 2px;
 }
 
 .footer-section p {
     line-height: 1.6;
-    color: #ecf0f1;
+    color: var(--dark-color-font);
     margin-bottom: 1rem;
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3498db;
+    color: var(--dark-color-font);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.9rem;
+    font-family: "Shelley Script LT W01", serif;
+}
+
+.logo img {
+    width: 10rem;
 }
 
 .logo-description {
     margin-bottom: 1.5rem;
+    font-size: 1rem;
 }
 
 .footer-links {
@@ -71,7 +97,7 @@ footer {
 }
 
 .footer-links a {
-    color: #bdc3c7;
+    color: var(--dark-color-font);
     text-decoration: none;
     transition: all 0.3s ease;
     display: flex;
@@ -80,7 +106,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #3498db;
+    color: var(--dark-color-font);
     transform: translateX(5px);
 }
 
@@ -94,11 +120,11 @@ footer {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
-    color: #bdc3c7;
+    color: var(--dark-color-font);
 }
 
 .contact-info i {
-    color: #3498db;
+    color: var(--dark-color-font);
     font-size: 1.2rem;
     width: 20px;
 }
@@ -114,8 +140,8 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #34495e;
-    color: white;
+    border: 1px solid var(--dark-color-font);
+    color: var(--dark-color-font);
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -123,7 +149,8 @@ footer {
 }
 
 .social-links a:hover {
-    background: #3498db;
+    background: var(--dark-color-font);
+    color: var(--light-color-font);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -142,39 +169,50 @@ footer {
     padding: 0.8rem;
     border: none;
     border-radius: 4px;
-    background: #34495e;
-    color: white;
+    background: var(--light-color-font);
+    color: var(--dark-color-font);
     font-size: 1rem;
 }
 
 .subscribe-form input::placeholder {
-    color: #bdc3c7;
+    color: var(--dark-color-font);
+    font-family: 'EB Garamond', serif;
 }
 
 .subscribe-form button {
     padding: 0.8rem;
     border: none;
     border-radius: 4px;
-    background: #e74c3c;
-    color: white;
+    background: var(--main-color);
+    color: var(--light-color-font);
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: 'EB Garamond', serif;
 }
 
 .subscribe-form button:hover {
-    background: #c0392b;
+    background: #352325;
     transform: translateY(-2px);
 }
 
+.heart-icon {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #e74c3c;
+    margin: 0 0.2rem;
+}
+
+.heart-icon:hover {
+    transform: scale(1.5);
+}
+
 .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
     padding-top: 2rem;
-    border-top: 1px solid #34495e;
+    border-top: 1px solid var(--dark-color-font);
     text-align: center;
-    color: #95a5a6;
+    color: var(--dark-color-font);
     font-size: 0.9rem;
 }
 
@@ -182,7 +220,17 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-/* Mobile Styles */
+.footer-bottom a {
+    color: var(--dark-color-font);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #3c5451;
+}
+
 @media (max-width: 768px) {
     footer {
         padding: 2rem 1rem 1rem;

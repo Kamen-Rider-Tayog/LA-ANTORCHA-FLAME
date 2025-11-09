@@ -5,13 +5,21 @@
     <base target="_parent">
     <link rel="stylesheet" href="styles/footer-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/80556710521d23086f530e782e89b377?family=Shelley+Script+LT+W01" rel="stylesheet">
 </head>
 <body>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <div class="logo">MyWebsite</div>
-                <p class="logo-description">Creating amazing experiences and quality products for our customers.</p>
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="logo">
+                    <div>
+                        <h1>La Antorcha Flame</h1>
+                        <p class="logo-description">Creating amazing experiences and quality products for our customers.</p>
+                    </div>
+                </div>
+                
                 <div class="contact-info">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
@@ -19,28 +27,26 @@
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
-                        <span>+1 (555) 123-4567</span>
+                        <span>+63 912 345 6789</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <span>info@mywebsite.com</span>
+                        <span>example@email.com</span>
                     </li>
                 </div>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">🏠 Home</a></li>
-                    <li><a href="about.html">ℹ️ About</a></li>
-                    <li><a href="product.html">📦 Product</a></li>
-                    <li><a href="store.html">🛒 Store</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="store.html">Store</a></li>
                 </ul>
             </div>
             
@@ -55,9 +61,29 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 MyWebsite. All rights reserved.</p>
-            <p>Designed with ❤️ for better web experiences</p>
+            <p>&copy; 2025 LaAntorchaFlame.com All rights reserved.</p>
+            <p>Designed with 
+                <i class="fa-regular fa-heart heart-icon"></i> by 
+                <a href="https://kamen-rider-tayog.github.io/lab5-resume" target="_blank">Kagame</a> 
+                for better web experiences
+            </p>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const heartIcon = document.querySelector('.heart-icon');
+        
+        if (heartIcon) {
+            heartIcon.addEventListener('mouseenter', function() {
+                this.classList.replace('fa-regular', 'fa-solid');
+            });
+            
+            heartIcon.addEventListener('mouseleave', function() {
+                this.classList.replace('fa-solid', 'fa-regular');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
