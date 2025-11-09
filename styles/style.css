@@ -182,10 +182,6 @@ main .hero-section{
     transition: transform 0.3s ease;
 }
 
-.hero-shape-2:hover img {
-    transform: scale(1.15);
-}
-
 @keyframes floatAndMorph {
     0%, 100% {
         border-radius: 71% 29% 55% 45% / 45% 36% 64% 55%;
