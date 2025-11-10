@@ -8,3 +8,43 @@
 
     --accent-color: #756d6e;
 }
+
+.section-3 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding: 3rem;
+}
+
+.section-3-left {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-3-right {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--dark-color-font);
+}
+
+.section-3-right h1 {
+    font-size: 1.25rem;
+}
+
+.section-3-right i {
+    font-family: "Shelley Script LT W01", serif;
+    font-style: normal;
+}
+
+.section-3-right p {
+    font-size: 1rem;
+}
+
+.section-3-right a {
+    color: var(--dark-color-font);
+}
