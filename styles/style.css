@@ -24,6 +24,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 iframe[src="header.html"] {
