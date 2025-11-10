@@ -12,10 +12,8 @@
     --main-color: #644D36;
     --main-bg: #F7EEDD;
     --footer-bg: #B1A9A2;
-
     --light-color-font: #F7EEDD;
     --dark-color-font: #352325;
-
     --accent-color: #756d6e;
 }
 
@@ -64,18 +62,39 @@ nav ul {
     display: flex;
     gap: 2rem;
     background-color: var(--main-color);
-    padding: 1rem 0;
+    padding: 1rem;
     border-radius: 5rem 0 0 5rem;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.8rem 1.2rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
     position: relative;
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    color: var(--light-color-font);
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 0.8rem 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:after {
+    content: "";
+    position: absolute;
+    background-color: var(--light-color-font);
+    height: 2px;
+    width: 0;
+    left: 20%;
+    bottom: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--light-color-font);
+}
+
+nav a:hover:after {
+    width: 60%;
 }
 
 @media (max-width: 768px) {
@@ -96,5 +115,9 @@ nav a {
     nav a {
         display: block;
         padding: 0.8rem;
+    }
+    
+    nav a:after {
+        bottom: 2px;
     }
 }
