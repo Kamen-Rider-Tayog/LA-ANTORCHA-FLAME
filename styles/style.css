@@ -201,7 +201,6 @@ main .hero-section{
     }
 }
 
-/* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
     .tagline {
         padding: 0 0 0 6rem;
@@ -236,7 +235,6 @@ main .hero-section{
     }
 }
 
-/* Mobile Styles (768px and below) */
 @media (max-width: 768px) {
     main .hero-section {
         flex-direction: column;
@@ -250,7 +248,7 @@ main .hero-section{
     }
     
     .left-hero {
-        padding: 1rem;
+        padding: 0;
         order: 2;
     }
     
@@ -281,7 +279,7 @@ main .hero-section{
     
     .hero-shape-1 {
         justify-content: center;
-        border-radius: 1rem;
+        border-radius: 0;
         padding: 1rem 2rem;
         gap: 2rem;
     }

@@ -106,7 +106,6 @@
     }
 }
 
-/* Small Mobile Styles (480px and below) */
 @media (max-width: 480px) {
     .section-1 {
         height: 50vh;
