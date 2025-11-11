@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mainImage.src = imageSrc;
             
             // Add zoom-in effect
-            mainImage.style.transform = 'scale(1)';
+            mainImage.style.transform = 'scale(1.25)';
             mainImage.style.opacity = '1';
             mainImage.classList.add('zoom-in');
             
