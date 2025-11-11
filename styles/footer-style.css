@@ -231,21 +231,99 @@ footer {
     color: #3c5451;
 }
 
-@media (max-width: 768px) {
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
     footer {
-        padding: 2rem 1rem 1rem;
+        height: 70vh;
+        padding: 1.5rem;
     }
     
     .footer-content {
-        grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .footer-section {
+        max-width: 28vw;
+    }
+    
+    .logo h1 {
+        font-size: 1.7rem;
+    }
+    
+    .logo img {
+        width: 8rem;
+    }
+}
+
+/* Mobile Styles (768px and below) */
+@media (max-width: 768px) {
+    footer {
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo img {
+        width: 6rem;
+    }
+    
+    .contact-info li {
+        justify-content: center;
     }
     
     .social-links {
         justify-content: center;
     }
     
-    .subscribe-form {
-        max-width: 300px;
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Small Mobile Styles (480px and below) */
+@media (max-width: 480px) {
+    footer {
+        padding: 0.8rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo img {
+        width: 5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .subscribe-form input,
+    .subscribe-form button {
+        font-size: 0.9rem;
     }
 }

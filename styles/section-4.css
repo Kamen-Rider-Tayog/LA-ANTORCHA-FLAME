@@ -72,3 +72,73 @@
 .section-4-image img:hover {
     scale: 1.25;
 }
+
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .section-4 {
+        height: 80vh;
+    }
+    
+    .section-4-image img {
+        height: 20rem;
+    }
+    
+    .section-4-image h1 {
+        font-size: 2rem;
+    }
+    
+    .section-4-image p {
+        max-width: 20rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Styles (768px and below) */
+@media (max-width: 768px) {
+    .section-4 {
+        height: 70vh;
+    }
+    
+    .section-4-image img {
+        height: 15rem;
+    }
+    
+    .section-4-image h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section-4-image p {
+        max-width: 18rem;
+        font-size: 0.85rem;
+    }
+    
+    .marquee-text-2nd {
+        font-size: 0.9rem;
+        padding: 0.8rem 0;
+    }
+}
+
+/* Small Mobile Styles (480px and below) */
+@media (max-width: 480px) {
+    .section-4 {
+        height: 60vh;
+    }
+    
+    .section-4-image img {
+        height: 12rem;
+    }
+    
+    .section-4-image h1 {
+        font-size: 1.3rem;
+    }
+    
+    .section-4-image p {
+        max-width: 15rem;
+        font-size: 0.8rem;
+    }
+    
+    .marquee-text-2nd {
+        font-size: 0.8rem;
+        padding: 0.6rem 0;
+    }
+}

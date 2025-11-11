@@ -20,3 +20,36 @@
 .section-2 img {
     height: 90%;
 }
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .section-2 {
+        height: 80vh;
+    }
+    
+    .section-2 img {
+        height: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-2 {
+        height: 60vh;
+    }
+    
+    .section-2 img {
+        height: 80%;
+        width: 90%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-2 {
+        height: 50vh;
+    }
+    
+    .section-2 img {
+        height: 75%;
+        width: 95%;
+    }
+}
