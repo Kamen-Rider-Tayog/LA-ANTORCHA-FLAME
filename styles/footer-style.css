@@ -26,9 +26,12 @@ body {
 footer {
     background-color: var(--footer-bg);
     padding: 2rem;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     font-family: 'EB Garamond', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .footer-content {
@@ -234,7 +237,6 @@ footer {
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
     footer {
-        height: 70vh;
         padding: 1.5rem;
     }
     
@@ -255,7 +257,6 @@ footer {
     }
 }
 
-/* Mobile Styles (768px and below) */
 @media (max-width: 768px) {
     footer {
         height: auto;
@@ -273,17 +274,26 @@ footer {
     }
     
     .logo {
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
+        justify-content: center;
         gap: 1rem;
+    }
+
+    .logo-description {
+        font-size: 1.25rem;
+    }
+
+    .logo div {
+        max-width: 45vw;
     }
     
     .logo h1 {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
     
     .logo img {
-        width: 6rem;
+        width: 15rem;
     }
     
     .contact-info li {
@@ -298,9 +308,20 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    #links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .subscribe-form {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
-/* Small Mobile Styles (480px and below) */
 @media (max-width: 480px) {
     footer {
         padding: 0.8rem;
@@ -311,15 +332,23 @@ footer {
     }
     
     .logo h1 {
-        font-size: 1.3rem;
+        font-size: 2.5rem;
+    }
+
+    .logo div {
+        width: 50vw;
     }
     
     .logo img {
-        width: 5rem;
+        width: 9rem;
     }
     
     .footer-section h3 {
-        font-size: 1.1rem;
+        font-size: 1.75rem;
+    }
+
+    .logo-description {
+        font-size: 1rem;
     }
     
     .subscribe-form input,
