@@ -118,6 +118,14 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+.contact-info a {
+    color: var(--dark-color-font);
+}
+
+.contact-info a:hover {
+    color: white;
+}
+
 .contact-info li {
     display: flex;
     align-items: center;

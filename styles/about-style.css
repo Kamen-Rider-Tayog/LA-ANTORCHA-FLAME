@@ -273,6 +273,15 @@ body {
     align-items: center;
 }
 
+.location-details a {
+  color: var(--dark-color-font);
+  transition: all 0.3s ease;
+}
+
+.location-details a:hover {
+  color: #756d6e;
+}
+
 .location-text h2 {
     font-family: "Shelley Script LT W01", serif;
     font-size: 3rem;

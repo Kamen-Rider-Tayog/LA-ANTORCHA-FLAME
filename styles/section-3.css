@@ -49,6 +49,10 @@
     color: var(--dark-color-font);
 }
 
+.section-3-right a:hover {
+    color: #756d6e;
+}
+
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
     .section-3 {
