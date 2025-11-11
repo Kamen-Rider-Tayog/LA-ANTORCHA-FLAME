@@ -262,6 +262,7 @@ main .hero-section{
     
     .tagline, .hero-images {
         height: auto;
+        padding: 3rem 0;
     }
     
     .tagline {
