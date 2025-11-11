@@ -99,16 +99,12 @@ nav a:hover:after {
 
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
-    header {
-        height: 12vh;
-    }
-    
     .header-content h1 {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
-    
+
     .logo img {
-        height: 4rem;
+        height: 7rem;
     }
     
     nav ul {
@@ -116,7 +112,7 @@ nav a:hover:after {
     }
     
     nav a {
-        font-size: 16px;
+        font-size: 1.25rem;
         padding: 0.6rem 1rem;
     }
 }
@@ -124,27 +120,25 @@ nav a:hover:after {
 /* Mobile Styles (768px and below) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
         height: auto;
-        padding: 1rem;
         gap: 1rem;
     }
     
     .header-content {
         padding: 0;
         justify-content: center;
+        padding: 0 1rem;
     }
     
     .header-content h1 {
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
     
     .logo img {
-        height: 3.5rem;
+        height: 5rem;
     }
     
     nav ul {
-        border-radius: 0;
         padding: 0.8rem;
         gap: 1rem;
     }
@@ -155,22 +149,99 @@ nav a:hover:after {
     }
 }
 
-/* Small Mobile Styles (480px and below) */
+/* Burger Menu Styles - Mobile Only (480px and below) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1000;
+    background: var(--main-bg);
+    border-radius: 4px;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--main-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Burger menu animation to X */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    background-color: var(--light-color-font);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background-color: var(--light-color-font);
+}
+
+.burger-menu.active {
+    background-color: var(--main-color);
+    border-color: var(--light-color-font);
+}
+
+/* Small Mobile Styles (480px and below) - BURGER MENU ONLY HERE */
 @media (max-width: 480px) {
     .header-content h1 {
-        font-size: 1.1rem;
+        font-size: 2rem;
     }
     
     .logo img {
-        height: 3rem;
+        height: 3.5rem;
     }
     
     nav ul {
-        gap: 0.5rem;
+        display: none;
+    }
+    
+    .burger-menu {
+        display: flex;
+    }
+    
+    nav ul.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--main-color);
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 999;
+        border-radius: 0;
+        gap: 1rem;
+        margin: 0;
+    }
+    
+    nav ul li {
+        width: 100%;
     }
     
     nav a {
-        font-size: 12px;
-        padding: 0.4rem 0.6rem;
+        font-size: .75rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav a:after {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8px;
+    }
+    
+    nav a:hover:after {
+        width: 40%;
     }
 }

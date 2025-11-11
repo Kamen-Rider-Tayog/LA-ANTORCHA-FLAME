@@ -15,7 +15,12 @@
         <h1>La Antorcha Flame</h1>
     </div>
     <nav>
-        <ul>
+        <div class="burger-menu" id="burgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="navMenu">
             <li><a href="index.html" class="" target="_parent">Home</a></li>
             <li><a href="about.html" target="_parent">About</a></li>
             <li><a href="product.html" target="_parent">Product</a></li>
@@ -23,5 +28,25 @@
         </ul>
     </nav>
 </header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navMenu = document.getElementById('navMenu');
+        
+        burgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        const navLinks = document.querySelectorAll('#navMenu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                burgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    });
+</script>
 </body>
 </html>
