@@ -413,4 +413,8 @@ body {
     .detail-item {
         font-size: 1rem;
     }
+    
+    .team-grid {
+        grid-template-columns: repeat(1, minmax(1rem, 1fr));
+    }
 }
