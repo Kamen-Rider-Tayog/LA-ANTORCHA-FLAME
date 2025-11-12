@@ -192,7 +192,7 @@ nav a:hover:after {
 /* Small Mobile Styles (480px and below) - BURGER MENU ONLY HERE */
 @media (max-width: 480px) {
     .header-content h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .logo img {
