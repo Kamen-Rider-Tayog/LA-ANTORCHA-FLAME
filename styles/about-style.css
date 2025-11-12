@@ -13,11 +13,21 @@
     --accent-color: #756d6e;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+iframe[src="header.html"] {
+    width: 100%;
+    height: 15vh;
+    border: none;
+    display: block;
+}
+
 body {
     background-color: var(--main-bg);
     font-family: 'EB Garamond', serif;
     color: var(--dark-color-font);
-    line-height: 1.6;
 }
 
 .about-main {
@@ -217,7 +227,7 @@ body {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 2rem;
 }
 
@@ -352,9 +362,12 @@ body {
     }
     
     .mv-grid,
-    .values-grid,
-    .team-grid {
+    .values-grid {
         grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
     }
     
     .mv-card,

@@ -13,6 +13,13 @@
     --accent-color: #756d6e;
 }
 
+iframe[src="header.html"] {
+    width: 100%;
+    height: 15vh;
+    border: none;
+    display: block;
+}
+
 body {
     background-color: var(--main-bg);
     font-family: 'EB Garamond', serif;
