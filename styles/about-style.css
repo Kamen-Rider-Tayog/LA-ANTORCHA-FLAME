@@ -414,17 +414,17 @@ body {
 
 /* cursor */
 .mv-card:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .value-card:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .team-member:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .location-details a:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }

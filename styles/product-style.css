@@ -403,17 +403,17 @@ body {
 
 /* cursor */
 .product-card:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .product-image:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .feature:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }
 
 .set-content:hover {
-  cursor: url(/assets/images/hover.png), pointer;
+  cursor: url(assets/images/hover.png), pointer;
 }

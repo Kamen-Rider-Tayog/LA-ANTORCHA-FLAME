@@ -48,9 +48,9 @@
 }
 
 .back-to-top {
-    cursor: url(/assets/images/pointer.png), pointer;
+    cursor: url(assets/images/pointer.png), pointer;
 }
 
 .back-to-top:hover {
-    cursor: url(/assets/images/hover.png), pointer;
+    cursor: url(assets/images/hover.png), pointer;
 }
