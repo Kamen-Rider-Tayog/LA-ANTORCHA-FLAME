@@ -340,7 +340,7 @@ main .hero-section {
 
 /*cursor*/
 * {
-  cursor: url(assets/images/pointer.png), auto;
+  cursor: url(../assets/images/pointer.png), auto;
 }
 
 a:hover,
@@ -356,29 +356,29 @@ button:hover,
 .footer-links a:hover,
 .social-links a:hover,
 nav a:hover {
-  cursor: url(assets/images/hover.png), pointer;
+  cursor: url(../assets/images/hover.png), pointer;
 }
 
 .thumbnail:hover {
-  cursor: url(assets/images/hover.png), pointer;
+  cursor: url(../assets/images/hover.png), pointer;
 }
 
 .product-card:hover {
-  cursor: url(assets/images/hover.png), pointer;
+  cursor: url(../assets/images/hover.png), pointer;
 }
 
 .button:hover, 
 .btn:hover, 
 .cta-button:hover {
-  cursor: url(assets/images/hover.png), pointer;
+  cursor: url(../assets/images/hover.png), pointer;
 }
 
 input, 
 textarea, 
 [contenteditable="true"] {
-  cursor: url(assets/images/pointer.png), text;
+  cursor: url(../assets/images/pointer.png), text;
 }
 
 a, button, .thumbnail, .product-card {
-  cursor: url(assets/images/pointer.png), auto;
+  cursor: url(../assets/images/pointer.png), auto;
 }

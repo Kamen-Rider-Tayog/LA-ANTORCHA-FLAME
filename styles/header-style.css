@@ -248,23 +248,23 @@ nav a:hover:after {
 
 /* cursor */
 * {
-    cursor: url(assets/images/pointer.png), auto;
+    cursor: url(../assets/images/pointer.png), auto;
 }
 
 nav a:hover,
 .burger-menu:hover,
 .logo:hover {
-    cursor: url(assets/images/hover.png), pointer;
+    cursor: url(../assets/images/hover.png), pointer;
 }
 
 .burger-menu span {
-    cursor: url(assets/images/pointer.png), auto;
+    cursor: url(../assets/images/pointer.png), auto;
 }
 
 .burger-menu:hover span {
-    cursor: url(assets/images/hover.png), pointer;
+    cursor: url(../assets/images/hover.png), pointer;
 }
 
 input, textarea {
-    cursor: url(assets/images/pointer.png), text;
+    cursor: url(../assets/images/pointer.png), text;
 }
