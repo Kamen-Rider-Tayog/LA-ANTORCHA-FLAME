@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scented Candle 3D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            
+        }
+
+        header {
+            margin-top: 3em;
+            text-align: center;
+            color: #644d36;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2em;
+            font-weight: 900;
+        }
+
+        #container3D {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 100;
+            font-size: 14px;
+            transition: opacity 0.5s ease;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 101;
+        }
+
+        #homeBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #644d36;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            z-index: 100;
+            transition: background 0.3s ease;
+        }
+
+        #homeBtn:hover {
+            background: #7a6146;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <header>
+      <h1>Scented Candle 3D Viewer</h1>
+    </header>
+
+    <button id="homeBtn">← Home</button>
+
+    <main>
+      <div id="container3D"></div>
+      <div id="loading">Loading 3D model...</div>
+      <div id="instructions">Drag to rotate | Scroll to zoom</div>
+    </main>
+
+    <script type="module">
+        // Import the THREE.js library
+        import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+        import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+        import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+
+        // Create a Three.JS Scene
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xb1a9a2);
+        
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        // Keep the 3D object on a global variable so we can access it later
+        let object;
+        let controls;
+        let renderer;
+
+        // Get DOM elements
+        const loadingElement = document.getElementById('loading');
+        const container = document.getElementById('container3D');
+
+        // Instantiate a loader for the .gltf file
+        const loader = new GLTFLoader();
+
+        // Load the file
+        loader.load(
+            './assets/scented_candle/scene.gltf',
+            function (gltf) {
+                // Hide loading indicator
+                loadingElement.style.display = 'none';
+                
+                // If the file is loaded, add it to the scene
+                object = gltf.scene;
+                scene.add(object);
+                console.log('Scented candle loaded successfully!', object);
+                
+                // Enable shadows for all children
+                object.traverse((child) => {
+                    if (child.isMesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+                
+                // MAKE THE CANDLE BIGGER - Scale it up
+                const scale = 10; // Increase this number to make it bigger (was 1)
+                object.scale.set(scale, scale, scale);
+                
+                // Center the object and adjust camera
+                const box = new THREE.Box3().setFromObject(object);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                
+                console.log('Model center:', center);
+                console.log('Model size:', size);
+                
+                // Center the model
+                object.position.x -= center.x;
+                object.position.y -= center.y;
+                object.position.z -= center.z;
+                
+                // Adjust camera distance based on model size
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const cameraDistance = maxDim * 1.5;
+                camera.position.set(cameraDistance, cameraDistance * 0.5, cameraDistance);
+                
+                // Update controls
+                controls.target.set(0, 0, 0);
+                controls.update();
+            },
+            function (xhr) {
+                // While loading, log the progress
+                const percent = (xhr.loaded / xhr.total * 100);
+                console.log(percent + '% loaded');
+                loadingElement.textContent = 'Loading 3D model... ' + percent.toFixed(2) + '%';
+            },
+            function (error) {
+                // If there is an error, display it
+                console.error('Error loading model:', error);
+                loadingElement.textContent = 'Error loading model. Check console.';
+            }
+        );
+
+        // Initialize Three.js
+        function init() {
+            // Instantiate renderer
+            renderer = new THREE.WebGLRenderer({ 
+                alpha: true,
+                antialias: true 
+            });
+            updateRendererSize();
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+            // Add the renderer to the DOM
+            container.appendChild(renderer.domElement);
+
+            // Set initial camera position
+            camera.position.set(5, 2, 5);
+
+            // Add lights to the scene
+            const topLight = new THREE.DirectionalLight(0xffffff, 1);
+            topLight.position.set(10, 10, 10);
+            topLight.castShadow = true;
+            scene.add(topLight);
+
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+            scene.add(ambientLight);
+
+            const frontLight = new THREE.DirectionalLight(0xffffff, 0.3);
+            frontLight.position.set(0, 5, 10);
+            scene.add(frontLight);
+
+            // Add controls - MAKE ROTATION FASTER
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 5.0; // Increased from 1.0 to 2.0 (100% faster)
+            
+            // MAKE ZOOM AND ROTATION FASTER
+            controls.rotateSpeed = 1.0; // Increase rotation speed with mouse
+            controls.zoomSpeed = 1.2;   // Increase zoom speed
+            controls.panSpeed = 0.8;    // Increase pan speed
+        }
+
+        // Update renderer size based on window size
+        function updateRendererSize() {
+            if (!renderer) return;
+            
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            renderer.setSize(width, height);
+            
+            if (camera) {
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+            }
+        }
+
+        // Render loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        function onWindowResize() {
+            updateRendererSize();
+        }
+
+        // Initialize and start
+        init();
+        window.addEventListener("resize", onWindowResize);
+        animate();
+
+        // Instructions toggle
+        const instructions = document.getElementById('instructions');
+        let hideTimeout;
+        
+        function hideInstructions() {
+            hideTimeout = setTimeout(() => {
+                instructions.style.opacity = '0';
+            }, 3000);
+        }
+        
+        function showInstructions() {
+            clearTimeout(hideTimeout);
+            instructions.style.opacity = '1';
+            hideInstructions();
+        }
+        
+        // Event listeners for instructions
+        renderer.domElement.addEventListener('mousedown', showInstructions);
+        renderer.domElement.addEventListener('wheel', showInstructions);
+        
+        // Initial hide
+        hideInstructions();
+
+        // Add home button functionality
+        const homeBtn = document.getElementById('homeBtn');
+        homeBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+  </body>
+</html>
